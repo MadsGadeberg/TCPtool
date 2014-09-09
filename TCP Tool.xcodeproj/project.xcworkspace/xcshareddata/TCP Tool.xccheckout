@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>86EFD630-DB1C-4B0E-A790-2F97E3CCE151</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TCP Tool</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C99C2456B4975ACF17C6231FA5329BEA7024D9DA</key>
+		<string>https://github.com/MadsGadeberg/TCPtool.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TCP Tool.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C99C2456B4975ACF17C6231FA5329BEA7024D9DA</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/MadsGadeberg/TCPtool.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C99C2456B4975ACF17C6231FA5329BEA7024D9DA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C99C2456B4975ACF17C6231FA5329BEA7024D9DA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TCP%20Tool</string>
+		</dict>
+	</array>
+</dict>
+</plist>
