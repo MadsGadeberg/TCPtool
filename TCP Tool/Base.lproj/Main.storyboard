@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="14A343f" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="14A361c" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment defaultVersion="101000" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6206.8"/>
@@ -971,7 +971,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FyV-5o-1GC">
-                                            <rect key="frame" x="18" y="199" width="660" height="22"/>
+                                            <rect key="frame" x="18" y="199" width="465" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="MFT-oo-Uwy">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -988,6 +988,36 @@
                                                 <action selector="ClientSendBtn:" target="XfG-lQ-9wD" id="yiW-I7-zwn"/>
                                             </connections>
                                         </button>
+                                        <matrix verticalHuggingPriority="750" fixedFrame="YES" allowsEmptySelection="NO" autorecalculatesCellSize="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eqd-qk-brb">
+                                            <rect key="frame" x="491" y="201" width="194" height="18"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            <size key="cellSize" width="62" height="18"/>
+                                            <size key="intercellSpacing" width="4" height="2"/>
+                                            <buttonCell key="prototype" type="radio" title="Radio" imagePosition="left" alignment="left" inset="2" id="tK3-DA-WkB">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <cells>
+                                                <column>
+                                                    <buttonCell type="radio" title="Text" imagePosition="left" alignment="left" state="on" inset="2" id="TIX-k2-Rad">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </column>
+                                                <column>
+                                                    <buttonCell type="radio" title="Hex" imagePosition="left" alignment="left" tag="1" inset="2" id="SMw-8o-Rnk">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </column>
+                                                <column>
+                                                    <buttonCell type="radio" title="Binary" imagePosition="left" alignment="left" tag="2" inset="2" id="Mqn-6Q-nzK">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </column>
+                                            </cells>
+                                        </matrix>
                                     </subviews>
                                 </view>
                                 <constraints>
@@ -1015,6 +1045,7 @@
                         <outlet property="ClientMessageTextField" destination="FyV-5o-1GC" id="Nsc-Fu-hJ5"/>
                         <outlet property="ClientPortTextField" destination="PFo-3T-D4q" id="byN-Jo-z0c"/>
                         <outlet property="ConnectionStatusLabel" destination="jgH-J3-Frr" id="xgl-lw-efZ"/>
+                        <outlet property="MessageTypeSelection" destination="Eqd-qk-brb" id="gN9-De-KsM"/>
                         <outlet property="ServerPortTextField" destination="D8L-qQ-5KS" id="Csr-Sf-36L"/>
                         <outlet property="ServerStatusLabel" destination="oGo-De-4Ht" id="XMd-us-LJ9"/>
                     </connections>
