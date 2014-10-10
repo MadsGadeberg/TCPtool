@@ -16,9 +16,13 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     // Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        ClientIpTextField.stringValue = "192.168.1.1"
-        ClientPortTextField.stringValue = "8888"
         appDelegate = NSApplication.sharedApplication().delegate as? AppDelegate    // returns nil
+        
+        // sets address and port labels in UI from tcpservice class
+        if appDelegate != nil{
+            self.ClientPortTextField.stringValue = String((appDelegate?.tcpService.port)!)
+            self.ClientIpTextField.stringValue = appDelegate?.tcpService.ipAddress
+        }
     }
 
     override var representedObject: AnyObject? {
