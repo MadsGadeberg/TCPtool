@@ -11,14 +11,14 @@ import Foundation
 
 class ViewController: NSViewController, NSTextFieldDelegate {
     // Variables
-    var tcpService = TcpService()
-    
+    var appDelegate: AppDelegate?
+
     // Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         ClientIpTextField.stringValue = "192.168.1.1"
         ClientPortTextField.stringValue = "8888"
-        // Do any additional setup after loading the view.
+        appDelegate = NSApplication.sharedApplication().delegate as? AppDelegate    // returns nil
     }
 
     override var representedObject: AnyObject? {
@@ -36,11 +36,11 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     @IBOutlet weak var MessageTypeSelection: NSMatrix!
     
     @IBAction func ClientConnectBtn(sender: AnyObject) {
-        tcpService.initOutputStream(ClientIpTextField.stringValue, Port: ClientPortTextField.stringValue.toInt()!)
+        appDelegate?.tcpService.initOutputStream(ClientIpTextField.stringValue, Port: ClientPortTextField.stringValue.toInt()!)
         
-        while tcpService.Status() == NSStreamStatus.Opening{ }
+        while appDelegate?.tcpService.Status() == NSStreamStatus.Opening{ }
         
-        if  tcpService.Status() == NSStreamStatus.Open{
+        if  appDelegate?.tcpService.Status() == NSStreamStatus.Open{
             ConnectionStatusLabel.stringValue = "Connected!"
         } else {
             ConnectionStatusLabel.stringValue = "Not Connected!"
@@ -48,8 +48,8 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     }
     
     @IBAction func ClientSendBtn(sender: AnyObject) {
-        if tcpService.Status() == NSStreamStatus.Open {
-            ConnectionStatusLabel.stringValue = "\(self.tcpService.SendMsg(ClientMessageTextField.stringValue)) bytes sent"
+        if appDelegate?.tcpService.Status() == NSStreamStatus.Open {
+            ConnectionStatusLabel.stringValue = "\(appDelegate?.tcpService.SendMsg(ClientMessageTextField.stringValue)) bytes sent"
         } else{
             ConnectionStatusLabel.stringValue = "Not Connected!"
         }
@@ -91,13 +91,13 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     }
     
     
-    // Server
+    // Server - Not implemented yet
     // ----------------------------------------------------------------------------------
     @IBOutlet weak var ServerPortTextField: NSTextField!
     @IBOutlet weak var ServerStatusLabel: NSTextField!
     @IBAction func ServerListenBtn(sender: AnyObject) {
-        let IPAdresses: [String] = tcpService.getIFAddresses()
-        let address = IPAdresses.count == 0 ? "localhost" : IPAdresses[0]
-        ServerStatusLabel.stringValue = address
+        //let IPAdresses: [String] = appDelegate?.tcpService.getIFAddresses()
+        //let address = IPAdresses.count == 0 ? "localhost" : IPAdresses[0]
+        //ServerStatusLabel.stringValue = address
     }
 }
