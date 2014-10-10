@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0979CD1419ACDBA40071B7B0 /* TcpAdapter.c in Sources */ = {isa = PBXBuildFile; fileRef = 0979CD1219ACDBA40071B7B0 /* TcpAdapter.c */; };
+		0958546E19E7C90500238001 /* TcpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0958546D19E7C90500238001 /* TcpService.swift */; };
 		09B1460919A50D7C0081E036 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B1460819A50D7C0081E036 /* main.swift */; };
 		09B1460B19A50D7C0081E036 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B1460A19A50D7C0081E036 /* ViewController.swift */; };
 		09B1460D19A50D7C0081E036 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B1460C19A50D7C0081E036 /* AppDelegate.swift */; };
@@ -27,8 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0958546D19E7C90500238001 /* TcpService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TcpService.swift; sourceTree = "<group>"; };
 		0979CD1119ACDBA40071B7B0 /* TCP Tool-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TCP Tool-Bridging-Header.h"; sourceTree = "<group>"; };
-		0979CD1219ACDBA40071B7B0 /* TcpAdapter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = TcpAdapter.c; sourceTree = "<group>"; };
 		09B1460319A50D7C0081E036 /* TCP Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TCP Tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09B1460719A50D7C0081E036 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09B1460819A50D7C0081E036 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -85,8 +85,8 @@
 				09B1460E19A50D7D0081E036 /* Images.xcassets */,
 				09B1461019A50D7D0081E036 /* Main.storyboard */,
 				09B1460619A50D7C0081E036 /* Supporting Files */,
-				0979CD1219ACDBA40071B7B0 /* TcpAdapter.c */,
 				0979CD1119ACDBA40071B7B0 /* TCP Tool-Bridging-Header.h */,
+				0958546D19E7C90500238001 /* TcpService.swift */,
 			);
 			path = "TCP Tool";
 			sourceTree = "<group>";
@@ -219,7 +219,7 @@
 				09B1460D19A50D7C0081E036 /* AppDelegate.swift in Sources */,
 				09B1460B19A50D7C0081E036 /* ViewController.swift in Sources */,
 				09B1460919A50D7C0081E036 /* main.swift in Sources */,
-				0979CD1419ACDBA40071B7B0 /* TcpAdapter.c in Sources */,
+				0958546E19E7C90500238001 /* TcpService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
