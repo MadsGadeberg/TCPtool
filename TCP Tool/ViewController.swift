@@ -13,13 +13,6 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     // Variables
     var tcpService = TcpService()
     
-//    // Initialzers
-//    required init(coder aDecoder: NSCoder) {
-//
-//        
-//        super.init(coder: aDecoder)
-//    }
-   
     // Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +27,8 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         }
     }
     
-    // Client Connections
+    // Client
+    // ----------------------------------------------------------------------------------
     @IBOutlet weak var ClientIpTextField: NSTextField!
     @IBOutlet weak var ClientPortTextField: NSTextField!
     @IBOutlet weak var ConnectionStatusLabel: NSTextField!
@@ -44,9 +38,9 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     @IBAction func ClientConnectBtn(sender: AnyObject) {
         tcpService.initOutputStream(ClientIpTextField.stringValue, Port: ClientPortTextField.stringValue.toInt()!)
         
-        while tcpService.outputStream!.streamStatus == NSStreamStatus.Opening{ }
+        while tcpService.Status() == NSStreamStatus.Opening{ }
         
-        if  tcpService.outputStream!.streamStatus == NSStreamStatus.Open{
+        if  tcpService.Status() == NSStreamStatus.Open{
             ConnectionStatusLabel.stringValue = "Connected!"
         } else {
             ConnectionStatusLabel.stringValue = "Not Connected!"
@@ -54,7 +48,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     }
     
     @IBAction func ClientSendBtn(sender: AnyObject) {
-        if tcpService.outputStream != nil && tcpService.outputStream!.streamStatus == NSStreamStatus.Open {
+        if tcpService.Status() == NSStreamStatus.Open {
             ConnectionStatusLabel.stringValue = "\(self.tcpService.SendMsg(ClientMessageTextField.stringValue)) bytes sent"
         } else{
             ConnectionStatusLabel.stringValue = "Not Connected!"
@@ -96,7 +90,9 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         return 0
     }
     
-    // Server Connections
+    
+    // Server
+    // ----------------------------------------------------------------------------------
     @IBOutlet weak var ServerPortTextField: NSTextField!
     @IBOutlet weak var ServerStatusLabel: NSTextField!
     @IBAction func ServerListenBtn(sender: AnyObject) {
