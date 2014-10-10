@@ -29,24 +29,20 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     
     // Client
     // ----------------------------------------------------------------------------------
-    @IBOutlet weak var ClientIpTextField: NSTextField!
-    @IBOutlet weak var ClientPortTextField: NSTextField!
-    @IBOutlet weak var ConnectionStatusLabel: NSTextField!
-    @IBOutlet weak var ClientMessageTextField: NSTextField!
-    @IBOutlet weak var MessageTypeSelection: NSMatrix!
+    @IBOutlet weak var ClientIpTextField: NSTextField!          // IP address textfield
+    @IBOutlet weak var ClientPortTextField: NSTextField!        // Port number textfield
+    @IBOutlet weak var ConnectionStatusLabel: NSTextField!      // connection statuslabel - shows the statusof the connectio
+    @IBOutlet weak var ClientMessageTextField: NSTextField!     // message textfield - the message to send
+    @IBOutlet weak var MessageTypeSelection: NSMatrix!          // radiobuttons for selecting the messagetype - string, hex
     
     @IBAction func ClientConnectBtn(sender: AnyObject) {
         appDelegate?.tcpService.initOutputStream(ClientIpTextField.stringValue, Port: ClientPortTextField.stringValue.toInt()!)
         
-        while appDelegate?.tcpService.Status() == NSStreamStatus.Opening{ }
-        
-        if  appDelegate?.tcpService.Status() == NSStreamStatus.Open{
-            ConnectionStatusLabel.stringValue = "Connected!"
-        } else {
-            ConnectionStatusLabel.stringValue = "Not Connected!"
-        }
+        // update label in a seperate thread so the UI doesent hang.
+        NSOperationQueue().addOperationWithBlock({ self.updateConnectionLabel() })
     }
     
+    // sends the message
     @IBAction func ClientSendBtn(sender: AnyObject) {
         if appDelegate?.tcpService.Status() == NSStreamStatus.Open {
             ConnectionStatusLabel.stringValue = "\(appDelegate?.tcpService.SendMsg(ClientMessageTextField.stringValue)) bytes sent"
@@ -90,6 +86,18 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         return 0
     }
     
+    // function that updates the Connectionlabel
+    private func updateConnectionLabel(){
+        ConnectionStatusLabel.stringValue = "Connecting..."
+        
+        while appDelegate?.tcpService.Status() == NSStreamStatus.Opening{ }
+    
+        if  appDelegate?.tcpService.Status() == NSStreamStatus.Open{
+            ConnectionStatusLabel.stringValue = "Connected!"
+        } else {
+            ConnectionStatusLabel.stringValue = "Not Connected!"
+        }
+    }
     
     // Server - Not implemented yet
     // ----------------------------------------------------------------------------------
