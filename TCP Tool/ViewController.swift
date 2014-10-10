@@ -11,20 +11,20 @@ import Foundation
 
 class ViewController: NSViewController, NSTextFieldDelegate {
     // Variables
-    var tcpService: TcpService
+    var tcpService = TcpService()
     
-    // Initialzers
-    required init(coder aDecoder: NSCoder) {
-        tcpService = TcpService();
-        ClientIpTextField.stringValue = "192.168.1.1"
-        ClientPortTextField.stringValue = "8888"
-        
-        super.init(coder: aDecoder)
-    }
+//    // Initialzers
+//    required init(coder aDecoder: NSCoder) {
+//
+//        
+//        super.init(coder: aDecoder)
+//    }
    
     // Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        ClientIpTextField.stringValue = "192.168.1.1"
+        ClientPortTextField.stringValue = "8888"
         // Do any additional setup after loading the view.
     }
 
@@ -130,8 +130,6 @@ class TcpService : NSObject, NSStreamDelegate{
         return outputStream!.write(msg, maxLength: countElements(msg))
     }
 
-    
-    // sets up the streams and opens them.
     func initInputStream(Port: Int){
         var readStream: Unmanaged<CFReadStream>?
         
